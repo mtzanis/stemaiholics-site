@@ -177,15 +177,6 @@ textarea {
   border-radius: var(--radius-lg);
 }
 
-.tagline-label {
-  margin: 0 0 0.6rem;
-  color: var(--accent-dark);
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
 .tagline-choice {
   margin: 0;
   color: var(--muted);
@@ -411,9 +402,31 @@ textarea {
 
 .founder-grid {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: minmax(180px, 0.55fr) 1.15fr 0.9fr;
   gap: 1.2rem;
   margin-top: 2rem;
+  align-items: start;
+}
+
+.founder-portrait {
+  margin: 0;
+  padding: 0.8rem;
+  background: var(--surface);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow);
+}
+
+.founder-portrait img {
+  display: block;
+  width: 100%;
+  max-height: 320px;
+  aspect-ratio: 1 / 1.15;
+  object-fit: contain;
+  object-position: center;
+  background: #ffffff;
+  border-radius: calc(var(--radius-xl) - 0.4rem);
 }
 
 .founder-copy {
@@ -444,6 +457,39 @@ textarea {
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 1rem;
   margin-top: 2rem;
+}
+
+.case-study-list {
+  display: grid;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.case-study-card {
+  padding: 1.5rem;
+  background: var(--surface);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow);
+}
+
+.case-study-card h3 {
+  margin: 0 0 0.8rem;
+  font-size: 1.3rem;
+}
+
+.case-study-card p {
+  margin: 0.8rem 0 0;
+}
+
+.case-study-type {
+  margin: 0;
+  color: var(--accent-dark);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .partnership-card {
@@ -514,6 +560,13 @@ textarea {
   padding-top: 5rem;
 }
 
+.testimonial-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(240px, 300px);
+  gap: 1.5rem;
+  align-items: center;
+}
+
 .testimonial {
   margin: 0;
   max-width: 18ch;
@@ -524,6 +577,26 @@ textarea {
 
 .testimonial-credit {
   margin-top: 1rem;
+}
+
+.testimonial-photo {
+  margin: 0;
+  padding: 0.8rem;
+  background: var(--surface);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow);
+}
+
+.testimonial-photo img {
+  display: block;
+  width: 100%;
+  max-height: 420px;
+  object-fit: contain;
+  object-position: center;
+  background: #ffffff;
+  border-radius: calc(var(--radius-xl) - 0.4rem);
 }
 
 .cta-section {
@@ -632,6 +705,12 @@ textarea {
   }
 
   .hero-points {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .testimonial-layout {
     grid-template-columns: 1fr;
   }
 }
