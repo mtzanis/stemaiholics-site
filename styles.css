@@ -26,6 +26,10 @@ html {
   scroll-behavior: smooth;
 }
 
+section[id] {
+  scroll-margin-top: 7.5rem;
+}
+
 body {
   margin: 0;
   font-family: "Avenir Next", "Segoe UI", "Helvetica Neue", sans-serif;
