@@ -87,18 +87,7 @@ textarea {
 .brand-wordmark {
   display: block;
   width: auto;
-  height: 3.1rem;
-}
-
-.brand-text {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.05;
-}
-
-.brand-tagline {
-  color: var(--muted);
-  font-size: 0.78rem;
+  height: 3.35rem;
 }
 
 .site-nav {
@@ -143,6 +132,14 @@ textarea {
   font-size: 0.78rem;
 }
 
+.hero-kicker {
+  margin: 0 0 1rem;
+  color: var(--teal);
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
 .hero h1,
 .section h2 {
   margin: 0;
@@ -153,7 +150,7 @@ textarea {
 
 .hero h1 {
   max-width: none;
-  font-size: clamp(3.2rem, 8vw, 6.4rem);
+  font-size: clamp(2.8rem, 6.5vw, 5.4rem);
 }
 
 .hero-text,
@@ -252,6 +249,7 @@ textarea {
   padding: 1.2rem;
   border-radius: var(--radius-xl);
   transform: rotate(2deg);
+  margin-top: 0.6rem;
 }
 
 .hero-card-header {
@@ -361,6 +359,20 @@ textarea {
   max-width: 45rem;
 }
 
+.founder-heading {
+  max-width: none;
+  width: 100%;
+}
+
+.founder-heading h2 {
+  width: 100%;
+  max-width: none;
+  font-size: clamp(2rem, 2.8vw, 3rem);
+  line-height: 1.04;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
 .section h2 {
   font-size: clamp(2.2rem, 5vw, 4.2rem);
   max-width: 14ch;
@@ -368,7 +380,7 @@ textarea {
 
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 1rem;
   margin-top: 2rem;
 }
@@ -494,6 +506,86 @@ textarea {
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+}
+
+.section-source {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+}
+
+.section-source a {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.15em;
+}
+
+.insights-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.insight-card,
+.future-learning-panel,
+.future-column {
+  background: var(--surface);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: var(--shadow);
+}
+
+.insight-card {
+  padding: 1.4rem;
+  border-radius: var(--radius-xl);
+}
+
+.insight-number {
+  display: inline-block;
+  margin-bottom: 0.8rem;
+  color: var(--accent-dark);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.insight-card h3,
+.future-column h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.insight-card p {
+  margin: 0.8rem 0 0;
+}
+
+.future-learning-panel {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr 1fr;
+  gap: 1rem;
+  align-items: stretch;
+  margin-top: 2rem;
+  padding: 1rem;
+  border-radius: var(--radius-xl);
+}
+
+.future-column {
+  padding: 1.3rem;
+  border-radius: var(--radius-lg);
+}
+
+.future-column ul {
+  padding-left: 1.1rem;
+  margin: 1rem 0 0;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+.future-arrow {
+  display: grid;
+  place-items: center;
+  font-size: 2rem;
+  color: var(--accent-dark);
+  font-weight: 800;
 }
 
 .partnership-card {
@@ -699,6 +791,18 @@ textarea {
     grid-template-columns: 1fr;
   }
 
+  .insights-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .future-learning-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .future-arrow {
+    display: none;
+  }
+
   .hero {
     min-height: auto;
     padding-top: 1rem;
@@ -737,6 +841,10 @@ textarea {
   }
 
   .timeline article {
+    grid-template-columns: 1fr;
+  }
+
+  .insights-grid {
     grid-template-columns: 1fr;
   }
 }

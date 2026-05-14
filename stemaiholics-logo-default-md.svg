@@ -79,6 +79,6 @@
     <text x="109" y="0" font-family="Arial, sans-serif" font-size="30px" font-weight="bold" fill="#2563eb" dominant-baseline="middle" font-style="normal">holics</text>
 
     <!-- Tagline -->
-    <text x="0" y="18" font-family="Arial, sans-serif" font-size="12px" font-weight="normal" fill="#64748b" letter-spacing="2" text-transform="uppercase">EDTECH CONSULTING</text>
+    <text x="0" y="22" font-family="Arial, sans-serif" font-size="12px" font-weight="normal" fill="#64748b" letter-spacing="2" text-transform="uppercase">EDTECH CONSULTING</text>
   </g>
 </svg>
