@@ -419,23 +419,19 @@ section { position: relative; z-index: 2; padding: clamp(64px, 8vw, 120px) 0; }
   display: grid; place-items: center;
   overflow: hidden;
 }
+.portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  position: relative;
+  z-index: 1;
+}
 .portrait::after {
   content: ""; position: absolute; inset: 0;
   background: linear-gradient(180deg, oklch(1 0 0 / 0.4) 0%, transparent 25%);
   mix-blend-mode: overlay;
 }
-.portrait .placeholder {
-  text-align: center;
-  z-index: 1;
-  padding: 22px 26px;
-  background: var(--glass-strong);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border: 1px dashed var(--rule-strong);
-  border-radius: var(--r-md);
-}
-.portrait .placeholder .t { font-weight: 700; letter-spacing: -0.01em; font-size: 15px; }
-.portrait .placeholder .s { font-size: 12px; color: var(--ink-mute); margin-top: 4px; }
 
 .founder-bio { font-size: 16px; line-height: 1.62; color: var(--ink-soft); }
 .founder-bio p { margin: 0 0 16px 0; }
@@ -736,7 +732,7 @@ section { position: relative; z-index: 2; padding: clamp(64px, 8vw, 120px) 0; }
 
 .quote-photo {
   margin-top: 16px;
-  aspect-ratio: 16/9;
+  aspect-ratio: 4/5;
   border-radius: var(--r-md);
   background: linear-gradient(160deg, oklch(0.92 0.05 245 / 0.6), oklch(0.92 0.05 320 / 0.5));
   border: 1px solid var(--glass-stroke);
@@ -744,14 +740,12 @@ section { position: relative; z-index: 2; padding: clamp(64px, 8vw, 120px) 0; }
   position: relative;
   overflow: hidden;
 }
-.quote-photo .placeholder {
-  text-align: center;
-  padding: 14px 22px;
-  background: var(--glass-strong);
-  border: 1px dashed var(--rule-strong);
-  border-radius: var(--r-sm);
-  font-size: 12px; font-weight: 600; color: var(--ink-mute);
-  letter-spacing: 0.04em;
+.quote-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center top;
+  background: linear-gradient(160deg, oklch(0.92 0.05 245 / 0.25), oklch(0.92 0.05 320 / 0.25));
 }
 @media (max-width: 900px) { .approach-grid { grid-template-columns: 1fr; } }
 
@@ -912,7 +906,7 @@ footer {
 
     <h1>
       Help your school <em>lead the future</em><br />
-      through hands-on STEM, <span class="serif-i">digital &amp; AI</span> literacy, and purposeful making.
+      through hands-on STEM, digital &amp; AI literacy, and purposeful making.
     </h1>
 
     <div class="hero-grid">
@@ -1010,10 +1004,7 @@ footer {
 
     <div class="founder-grid">
       <div class="portrait">
-        <div class="placeholder">
-          <div class="t">Michael Tzanis</div>
-          <div class="s">Drop portrait photo here</div>
-        </div>
+        <img src="founder-photo.jpeg" alt="Michael Tzanis portrait" />
       </div>
 
       <div class="founder-bio">
@@ -1324,7 +1315,7 @@ footer {
           <div class="by"><b>Michael Tzanis</b> &nbsp;·&nbsp; Founder, overSTEMED</div>
         </div>
         <div class="quote-photo">
-          <div class="placeholder">PHOTO · TEACHING WITH STUDENTS — drop here</div>
+          <img src="founder-teaching.png" alt="Michael Tzanis teaching students" />
         </div>
       </div>
     </div>
@@ -1353,7 +1344,7 @@ footer {
           <div class="v">A discovery conversation about your students, staff, and vision.</div>
         </div>
         <div class="ci-item">
-          <div class="k">Email — for now</div>
+          <div class="k">EMAIL</div>
           <div class="v"><a href="mailto:hello@overstemed.ai">hello@overstemed.ai</a></div>
         </div>
       </div>
@@ -1386,7 +1377,7 @@ footer {
           <button type="submit" class="btn btn-ed" style="justify-self: start;">Send inquiry →</button>
 
           <div style="font-size: 12px; color: var(--ink-mute); margin-top: 4px;">
-            Prefer email? <a href="mailto:hello@overstemed.ai" style="color: var(--ed); text-decoration: underline; text-underline-offset: 3px;">Write directly →</a>
+            <a href="mailto:hello@overstemed.ai?subject=overSTEMED%20Inquiry" style="color: var(--ed); text-decoration: underline; text-underline-offset: 3px;">EMAIL →</a>
           </div>
         </form>
       </div>
