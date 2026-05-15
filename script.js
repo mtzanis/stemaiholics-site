@@ -6,16 +6,11 @@ const revealItems = document.querySelectorAll(
 );
 const contactEmail = document.body.dataset.contactEmail;
 const contactLink = document.querySelector("[data-contact-link]");
-const contactCta = document.querySelector("[data-contact-cta]");
 
 if (contactEmail) {
   if (contactLink) {
     contactLink.href = `mailto:${contactEmail}`;
     contactLink.textContent = contactEmail;
-  }
-
-  if (contactCta) {
-    contactCta.href = `mailto:${contactEmail}?subject=STEMAIholics%20School%20Inquiry`;
   }
 }
 

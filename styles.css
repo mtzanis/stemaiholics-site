@@ -716,6 +716,10 @@ textarea {
   font-weight: 600;
 }
 
+.form-hidden {
+  display: none;
+}
+
 .contact-notes {
   display: grid;
   gap: 0.7rem;
