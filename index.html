@@ -128,23 +128,17 @@ img { max-width: 100%; display: block; }
 }
 
 /* ───────── Brand ───────── */
-.wordmark {
-  font-family: var(--sans);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  display: inline-flex; align-items: baseline;
-  font-size: 22px;
-  line-height: 1;
+.brand-logo {
+  display: block;
+  height: 122px;
+  width: auto;
+  transform: translateY(-10px);
 }
-.wordmark .over { font-weight: 500; font-style: italic; font-family: var(--serif); font-size: 1.18em; transform: translateY(0.04em); }
-.wordmark .stem { font-weight: 800; }
-.wordmark .ed { font-weight: 800; color: var(--ed); }
-.wordmark.lg { font-size: 36px; }
 
-.logo {
-  width: 38px; height: 38px;
-  position: relative;
-  flex: none;
+.footer-logo {
+  display: block;
+  height: 64px;
+  width: auto;
 }
 
 /* ───────── Floating glass nav ───────── */
@@ -157,7 +151,7 @@ img { max-width: 100%; display: block; }
 .nav {
   pointer-events: auto;
   display: flex; align-items: center; gap: 18px;
-  padding: 8px 8px 8px 18px;
+  padding: 6px 10px 2px 18px;
   border-radius: 999px;
   background: var(--glass-strong);
   backdrop-filter: blur(28px) saturate(200%);
@@ -166,7 +160,7 @@ img { max-width: 100%; display: block; }
   box-shadow: var(--glass-shadow);
   max-width: 100%;
 }
-.nav .brand { display: flex; align-items: center; gap: 10px; }
+.nav .brand { display: flex; align-items: flex-start; gap: 10px; margin-right: 8px; }
 .nav-links { display: flex; gap: 4px; font-size: 14px; color: var(--ink-soft); font-weight: 500; }
 .nav-links a {
   padding: 8px 14px;
@@ -882,8 +876,7 @@ footer {
 <div class="nav-wrap">
   <nav class="nav">
     <a href="#top" class="brand" aria-label="overSTEMED home">
-      <svg class="logo" viewBox="0 0 48 48" aria-hidden="true"><use href="#logo-mark"></use></svg>
-      <span class="wordmark"><span class="over" style="font-family: -apple-system">over</span><span class="stem">STEM</span><span class="ed">ED</span></span>
+      <img class="brand-logo" src="over-logo-test.svg" alt="overSTEMED" />
     </a>
     <div class="nav-links">
       <a href="#about">About</a>
@@ -1390,8 +1383,7 @@ footer {
   <div class="wrap">
     <div class="foot-card">
       <div style="display: flex; align-items: center; gap: 12px;">
-        <svg class="logo" viewBox="0 0 48 48" aria-hidden="true" style="width: 32px; height: 32px;"><use href="#logo-mark"></use></svg>
-        <span class="wordmark"><span class="over">over</span><span class="stem">STEM</span><span class="ed">ED</span></span>
+        <img class="footer-logo" src="over-logo-test.svg" alt="overSTEMED" />
       </div>
       <div class="meta">© 2026 · Michael Tzanis · STEM · AI · Makerspaces · International schools</div>
     </div>
