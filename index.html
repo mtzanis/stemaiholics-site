@@ -3,20 +3,20 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>overSTEMED — STEM, AI, and Makerspaces for schools</title>
-<meta name="description" content="overSTEMED partners with schools to design hands-on STEM curricula, train educators, integrate AI responsibly, and build sustainable makerspaces." />
+<title>overSTEMEd — STEM, AI, and Makerspaces for schools</title>
+<meta name="description" content="overSTEMEd partners with schools to design hands-on STEM curricula, train educators, integrate AI responsibly, and build sustainable makerspaces." />
 <link rel="canonical" href="https://overstemed.ai/" />
 <link rel="icon" href="https://overstemed.ai/over-logo-test.png" type="image/png" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://overstemed.ai/" />
-<meta property="og:title" content="overSTEMED — STEM, AI, and Makerspaces for schools" />
-<meta property="og:description" content="overSTEMED partners with schools to design hands-on STEM curricula, train educators, integrate AI responsibly, and build sustainable makerspaces." />
+<meta property="og:title" content="overSTEMEd — STEM, AI, and Makerspaces for schools" />
+<meta property="og:description" content="overSTEMEd partners with schools to design hands-on STEM curricula, train educators, integrate AI responsibly, and build sustainable makerspaces." />
 <meta property="og:image" content="https://overstemed.ai/over-logo-test.png" />
 <meta property="og:image:secure_url" content="https://overstemed.ai/over-logo-test.png" />
 <meta property="og:image:type" content="image/png" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="overSTEMED — STEM, AI, and Makerspaces for schools" />
-<meta name="twitter:description" content="overSTEMED partners with schools to design hands-on STEM curricula, train educators, integrate AI responsibly, and build sustainable makerspaces." />
+<meta name="twitter:title" content="overSTEMEd — STEM, AI, and Makerspaces for schools" />
+<meta name="twitter:description" content="overSTEMEd partners with schools to design hands-on STEM curricula, train educators, integrate AI responsibly, and build sustainable makerspaces." />
 <meta name="twitter:image" content="https://overstemed.ai/over-logo-test.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -205,6 +205,27 @@ img { max-width: 100%; display: block; }
   display: block;
   height: 80px;
   width: auto;
+}
+
+.brand-inline {
+  display: inline-flex;
+  align-items: baseline;
+  letter-spacing: -0.03em;
+}
+
+.brand-inline .over {
+  font-family: var(--sans);
+  font-style: normal;
+  font-weight: 800;
+}
+
+.brand-inline .stem {
+  font-weight: 800;
+}
+
+.brand-inline .ed {
+  font-weight: 800;
+  color: var(--ed);
 }
 
 .footer-logo {
@@ -612,8 +633,8 @@ section { position: relative; z-index: 2; padding: clamp(64px, 8vw, 120px) 0; }
   align-items: start;
 }
 .case-num {
-  font-family: var(--serif); font-style: italic;
-  font-size: 64px; line-height: 0.9; color: var(--ed);
+  font-family: var(--sans); font-style: normal; font-weight: 800;
+  font-size: 64px; line-height: 0.9; letter-spacing: -0.04em; color: var(--ed);
 }
 .case-num .label { display: block; font-family: var(--sans); font-style: normal; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-mute); margin-top: 10px; }
 .case h3 { font-weight: 700; font-size: 22px; line-height: 1.15; letter-spacing: -0.02em; margin: 0 0 6px 0; }
@@ -640,7 +661,7 @@ section { position: relative; z-index: 2; padding: clamp(64px, 8vw, 120px) 0; }
   border: 1px solid var(--glass-stroke);
   box-shadow: var(--glass-shadow);
 }
-.insight .num { font-family: var(--serif); font-style: italic; font-size: 40px; line-height: 1; color: var(--ed); margin-bottom: 12px; }
+.insight .num { font-family: var(--sans); font-style: normal; font-weight: 800; font-size: 40px; line-height: 1; letter-spacing: -0.04em; color: var(--ed); margin-bottom: 12px; }
 .insight h4 { font-weight: 700; font-size: 19px; letter-spacing: -0.015em; margin: 0 0 8px 0; }
 .insight p { margin: 0; color: var(--ink-soft); font-size: 13.5px; }
 @media (max-width: 900px) { .insights-grid { grid-template-columns: 1fr; } }
@@ -766,7 +787,7 @@ section { position: relative; z-index: 2; padding: clamp(64px, 8vw, 120px) 0; }
   border: 1px solid var(--glass-stroke);
   display: grid; grid-template-columns: 56px 1fr; gap: 16px; align-items: baseline;
 }
-.app-step .n { font-family: var(--serif); font-style: italic; font-size: 36px; color: var(--ed); line-height: 1; }
+.app-step .n { font-family: var(--sans); font-style: normal; font-weight: 800; font-size: 36px; letter-spacing: -0.04em; color: var(--ed); line-height: 1; }
 .app-step h4 { font-weight: 700; font-size: 19px; letter-spacing: -0.015em; margin: 0 0 6px 0; }
 .app-step p { margin: 0; color: var(--ink-soft); font-size: 14.5px; }
 
@@ -1053,8 +1074,8 @@ footer {
 <!-- ───── Floating glass nav ───── -->
 <div class="nav-wrap">
   <nav class="nav">
-    <a href="#top" class="brand" aria-label="overSTEMED home">
-      <img class="brand-logo" src="over-logo-test.png" alt="overSTEMED" />
+    <a href="#top" class="brand" aria-label="overSTEMEd home">
+      <img class="brand-logo" src="over-logo-test.png" alt="overSTEMEd" />
     </a>
     <div class="nav-links">
       <a href="#about">About</a>
@@ -1071,7 +1092,7 @@ footer {
 <section class="hero" data-screen-label="01 Hero">
   <div class="wrap">
     <span class="eyebrow">
-      <span><span class="dot"></span><span>From a teacher, for teachers · STEM · AI · Making</span></span>
+      <span><span class="dot"></span><span>Designed by an educator · for future-ready schools</span></span>
     </span>
 
     <h1>
@@ -1082,7 +1103,7 @@ footer {
     <div class="hero-grid">
       <div>
         <p class="hero-lede">
-          overSTEMED helps schools design hands-on STEM programs, train educators, build digital and AI literacy, and create sustainable makerspaces — so innovation becomes part of everyday learning.
+          overSTEMEd helps schools design hands-on STEM programs, train educators, build digital and AI literacy, and create sustainable makerspaces — so innovation becomes part of everyday learning.
         </p>
         <div class="hero-actions">
           <a href="#contact" class="btn btn-primary">Book a demo →</a>
@@ -1139,7 +1160,7 @@ footer {
 <section id="about" data-screen-label="02 About">
   <div class="wrap">
     <span class="eyebrow">About · Vision</span>
-    <h2 class="section-title">overSTEMED helps schools build the future <em>with confidence.</em></h2>
+    <h2 class="section-title"><span class="brand-inline"><span class="over">over</span><span class="stem">STEM</span><span class="ed">Ed</span></span> helps schools build the future <em>with confidence.</em></h2>
 
     <div class="about-grid">
       <p class="about-lede">
@@ -1181,7 +1202,7 @@ footer {
         <p>Michael Tzanis is an international STEM educator, curriculum designer, and technology integration specialist with experience teaching and leading innovative programs across the UK and Europe.</p>
         <p>He holds a BSc in Physics from the Aristotle University of Thessaloniki and a Master's degree in STEM Education from King's College London, where his research explored learning through play in STEM education and how hands-on learning can help bridge language gaps for multilingual learners in international schools.</p>
         <p>Michael currently works in international education in England and specializes in STEM education, AI literacy, educational technology, makerspaces, robotics, engineering, and interdisciplinary learning.</p>
-        <p>Through overSTEMED, his mission is to help schools modernize STEM education through tailored curriculum design, teacher training, innovative technologies, and practical implementation strategies that prepare students for a rapidly evolving world.</p>
+        <p>Through overSTEMEd, his mission is to help schools modernize STEM education through tailored curriculum design, teacher training, innovative technologies, and practical implementation strategies that prepare students for a rapidly evolving world.</p>
 
         <div class="founder-creds">
           <div class="cred">
@@ -1207,7 +1228,7 @@ footer {
   <div class="wrap">
     <span class="eyebrow">Services · Six offerings</span>
     <h2 class="section-title">Six ways we help schools build <em>meaningful</em> STEM learning.</h2>
-    <p class="section-lede">From curriculum and training to competitions and after-school programs — these are the core areas where overSTEMED can support your school.</p>
+    <p class="section-lede">From curriculum and training to competitions and after-school programs — these are the core areas where overSTEMEd can support your school.</p>
 
     <div class="services-grid">
       <article class="service s1">
@@ -1302,8 +1323,8 @@ footer {
 <section id="cases" data-screen-label="06 Case Studies">
   <div class="wrap">
     <span class="eyebrow">Case studies · Anonymized examples</span>
-    <h2 class="section-title">Examples of how overSTEMED can support <em>international schools.</em></h2>
-    <p class="section-lede">These anonymized examples reflect the kinds of school partnerships overSTEMED is designed to support — across curriculum, teacher development, AI integration, and learning-space strategy.</p>
+    <h2 class="section-title">Examples of how overSTEMEd can support <em>international schools.</em></h2>
+    <p class="section-lede">These anonymized examples reflect the kinds of school partnerships overSTEMEd is designed to support — across curriculum, teacher development, AI integration, and learning-space strategy.</p>
 
     <div class="case-list">
       <article class="case">
@@ -1371,7 +1392,7 @@ footer {
   <div class="wrap">
     <span class="eyebrow">Insights · Sector challenges</span>
     <h2 class="section-title">A snapshot of the challenges shaping <em>STEM education.</em></h2>
-    <p class="section-lede">Key challenges schools are facing across Europe — along with the kind of future-ready learning approach overSTEMED is designed to support.<br /><span style="font-size:12px; color: var(--ink-mute);">Source: European Commission, <i>Promoting STEM Education in Schools</i> (2026).</span></p>
+    <p class="section-lede">Key challenges schools are facing across Europe — along with the kind of future-ready learning approach overSTEMEd is designed to support.<br /><span style="font-size:12px; color: var(--ink-mute);">Source: European Commission, <i>Promoting STEM Education in Schools</i> (2026).</span></p>
 
     <div class="insights-grid">
       <div class="insight"><div class="num">01</div><h4>Fragmented STEM vision</h4><p>Many schools have strong intentions but lack a unified strategy that connects curriculum, technology, spaces, and staff development.</p></div>
@@ -1408,7 +1429,7 @@ footer {
         </div>
         <div class="t-arrow">→</div>
         <div class="t-col highlight">
-          <div class="k">With overSTEMED</div>
+          <div class="k">With overSTEMEd</div>
           <h4>How we help you get there</h4>
           <ul>
             <li>Hands-on STEM &amp; maker education</li>
@@ -1426,7 +1447,7 @@ footer {
 <section id="partnership" data-screen-label="08 Partnership">
   <div class="wrap">
     <span class="eyebrow">Partnership · Process</span>
-    <h2 class="section-title">How schools typically work with overSTEMED <em>over time.</em></h2>
+    <h2 class="section-title">How schools typically work with overSTEMEd <em>over time.</em></h2>
     <p class="section-lede">A partnership is not a separate service list. It is the way these services are combined and delivered to fit your school's goals, staff, and learning environment.</p>
 
     <div class="process-grid">
@@ -1482,7 +1503,7 @@ footer {
       <div>
         <div class="quote-card">
           <p>The future of STEM education should be playful, purposeful, and deeply connected to the real world students are growing into. The goal is not simply to introduce new tools, but to help schools build learning environments where curiosity, creativity, and confidence can thrive.</p>
-          <div class="by"><b>Michael Tzanis</b> &nbsp;·&nbsp; Founder, overSTEMED</div>
+          <div class="by"><b>Michael Tzanis</b> &nbsp;·&nbsp; Founder, overSTEMEd</div>
         </div>
         <div class="quote-photo">
           <img src="founder-teaching.png" alt="Michael Tzanis teaching students" />
@@ -1524,7 +1545,7 @@ footer {
               name="school-inquiry"
               method="POST"
               action="https://formspree.io/f/mrejnqwq">
-          <input type="hidden" name="_subject" value="overSTEMED — new school inquiry" />
+          <input type="hidden" name="_subject" value="overSTEMEd — new school inquiry" />
           <input type="hidden" name="_next" value="https://overstemed.ai/?sent=1#contact" />
 
           <div class="field">
@@ -1547,7 +1568,7 @@ footer {
           <button type="submit" class="btn btn-ed" style="justify-self: start;">Send inquiry →</button>
 
           <div style="font-size: 12px; color: var(--ink-mute); margin-top: 4px;">
-            <a href="mailto:hello@overstemed.ai?subject=overSTEMED%20Inquiry" style="color: var(--ed); text-decoration: underline; text-underline-offset: 3px;">EMAIL →</a>
+            <a href="mailto:hello@overstemed.ai?subject=overSTEMEd%20Inquiry" style="color: var(--ed); text-decoration: underline; text-underline-offset: 3px;">EMAIL →</a>
           </div>
         </form>
       </div>
@@ -1560,7 +1581,7 @@ footer {
   <div class="wrap">
     <div class="foot-card">
       <div style="display: flex; align-items: center; gap: 12px;">
-        <img class="footer-logo" src="over-logo-test.png" alt="overSTEMED" />
+        <img class="footer-logo" src="over-logo-test.png" alt="overSTEMEd" />
       </div>
       <div class="meta">© 2026 · Michael Tzanis · STEM · AI · Makerspaces · International schools</div>
     </div>
