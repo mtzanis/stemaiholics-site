@@ -6,18 +6,18 @@
 <title>overSTEMED — STEM, AI, and Makerspaces for schools</title>
 <meta name="description" content="overSTEMED partners with schools to design hands-on STEM curricula, train educators, integrate AI responsibly, and build sustainable makerspaces." />
 <link rel="canonical" href="https://overstemed.ai/" />
-<link rel="icon" href="https://overstemed.ai/over-logo-test.svg" type="image/svg+xml" />
+<link rel="icon" href="https://overstemed.ai/over-logo-test.png" type="image/png" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://overstemed.ai/" />
 <meta property="og:title" content="overSTEMED — STEM, AI, and Makerspaces for schools" />
 <meta property="og:description" content="overSTEMED partners with schools to design hands-on STEM curricula, train educators, integrate AI responsibly, and build sustainable makerspaces." />
-<meta property="og:image" content="https://overstemed.ai/over-logo-test.svg" />
-<meta property="og:image:secure_url" content="https://overstemed.ai/over-logo-test.svg" />
-<meta property="og:image:type" content="image/svg+xml" />
+<meta property="og:image" content="https://overstemed.ai/over-logo-test.png" />
+<meta property="og:image:secure_url" content="https://overstemed.ai/over-logo-test.png" />
+<meta property="og:image:type" content="image/png" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="overSTEMED — STEM, AI, and Makerspaces for schools" />
 <meta name="twitter:description" content="overSTEMED partners with schools to design hands-on STEM curricula, train educators, integrate AI responsibly, and build sustainable makerspaces." />
-<meta name="twitter:image" content="https://overstemed.ai/over-logo-test.svg" />
+<meta name="twitter:image" content="https://overstemed.ai/over-logo-test.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
@@ -66,49 +66,109 @@ body {
   overflow-x: hidden;
 }
 
-/* ───────── Living background — soft mesh gradient ───────── */
-.mesh {
-  position: fixed; inset: -10%;
-  z-index: 0;
-  pointer-events: none;
-  filter: saturate(110%);
+/* ───────── Living background — Aurora ───────── */
+/* Color tokens used by the aurora gradients */
+:root {
+  --white: #ffffff;
+  --black: #000000;
+  --transparent: transparent;
+  --blue-500: #3b82f6;
+  --blue-400: #60a5fa;
+  --blue-300: #93c5fd;
+  --indigo-300: #a5b4fc;
+  --violet-200: #ddd6fe;
 }
-.mesh::before, .mesh::after, .mesh > span {
-  content: ""; position: absolute; border-radius: 50%;
+
+.aurora {
+  position: fixed; inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Soft warm peach glow in the top-left — preserves the original
+   tinted backdrop behind the logo dock. */
+.aurora__warm {
+  position: absolute;
+  top: -10%; left: -10%;
+  width: 56vw; height: 56vw;
+  border-radius: 50%;
   filter: blur(80px);
   opacity: 0.85;
-  animation: drift 28s ease-in-out infinite alternate;
+  background: radial-gradient(circle at 50% 50%, oklch(0.92 0.06 25), transparent 60%);
+  pointer-events: none;
 }
-.mesh::before {
-  width: 56vw; height: 56vw;
-  top: -10%; left: -10%;
-  background: radial-gradient(circle at 50% 50%, var(--bg-tint-a), transparent 60%);
+
+/* Drifting node network — slow constellation behind content */
+.nodes-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.55;
 }
-.mesh::after {
-  width: 60vw; height: 60vw;
-  top: 25%; right: -18%;
-  background: radial-gradient(circle at 50% 50%, var(--bg-tint-b), transparent 60%);
-  animation-duration: 36s;
+
+.aurora__layer {
+  --white-gradient: repeating-linear-gradient(
+    100deg,
+    var(--white) 0%, var(--white) 7%,
+    var(--transparent) 10%, var(--transparent) 12%,
+    var(--white) 16%
+  );
+  --aurora-gradient: repeating-linear-gradient(
+    100deg,
+    var(--blue-500) 10%,
+    var(--indigo-300) 15%,
+    var(--blue-300) 20%,
+    var(--violet-200) 25%,
+    var(--blue-400) 30%
+  );
+  position: absolute;
+  inset: -10px;
+  opacity: 0.5;
+  background-image: var(--white-gradient), var(--aurora-gradient);
+  background-size: 300%, 200%;
+  background-position: 50% 50%, 50% 50%;
+  filter: blur(10px) invert(1);
+  will-change: transform;
 }
-.mesh > span.b1 {
-  width: 50vw; height: 50vw;
-  bottom: 8%; left: 10%;
-  background: radial-gradient(circle at 50% 50%, var(--bg-tint-c), transparent 60%);
-  animation-duration: 42s;
+.aurora__layer::after {
+  content: "";
+  position: absolute; inset: 0;
+  background-image: var(--white-gradient), var(--aurora-gradient);
+  background-size: 200%, 100%;
+  background-attachment: fixed;
+  mix-blend-mode: difference;
+  animation: aurora 60s linear infinite;
 }
-.mesh > span.b2 {
-  width: 44vw; height: 44vw;
-  bottom: -18%; right: 8%;
-  background: radial-gradient(circle at 50% 50%, var(--bg-tint-d), transparent 60%);
-  animation-duration: 32s;
+
+/* Mask variants — each layer concentrates the aurora in a different region */
+.aurora__layer.is-tr {
+  -webkit-mask-image: radial-gradient(ellipse at 100% 0%, black 10%, transparent 70%);
+          mask-image: radial-gradient(ellipse at 100% 0%, black 10%, transparent 70%);
 }
-@keyframes drift {
-  0%   { transform: translate(0,0) scale(1); }
-  50%  { transform: translate(4vw, -3vw) scale(1.06); }
-  100% { transform: translate(-3vw, 4vw) scale(0.96); }
+.aurora__layer.is-tl {
+  /* warm-toned glow behind the brand mark in the top-left */
+  --aurora-gradient: repeating-linear-gradient(
+    100deg,
+    oklch(0.72 0.16 32) 10%,
+    oklch(0.86 0.10 60) 15%,
+    oklch(0.82 0.12 320) 20%,
+    oklch(0.86 0.08 30) 25%,
+    oklch(0.78 0.14 32) 30%
+  );
+  opacity: 0.45;
+  -webkit-mask-image: radial-gradient(ellipse 60% 55% at 0% 0%, black 0%, transparent 70%);
+          mask-image: radial-gradient(ellipse 60% 55% at 0% 0%, black 0%, transparent 70%);
 }
+
+@keyframes aurora {
+  from { background-position: 50% 50%, 50% 50%; }
+  to   { background-position: 350% 50%, 350% 50%; }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .mesh::before, .mesh::after, .mesh > span { animation: none; }
+  .aurora__layer::after { animation: none; }
 }
 
 a { color: inherit; text-decoration: none; }
@@ -143,9 +203,8 @@ img { max-width: 100%; display: block; }
 /* ───────── Brand ───────── */
 .brand-logo {
   display: block;
-  height: 122px;
+  height: 80px;
   width: auto;
-  transform: translateY(-10px);
 }
 
 .footer-logo {
@@ -164,7 +223,7 @@ img { max-width: 100%; display: block; }
 .nav {
   pointer-events: auto;
   display: flex; align-items: center; gap: 18px;
-  padding: 6px 10px 2px 18px;
+  padding: 8px 8px 8px 18px;
   border-radius: 999px;
   background: var(--glass-strong);
   backdrop-filter: blur(28px) saturate(200%);
@@ -173,7 +232,7 @@ img { max-width: 100%; display: block; }
   box-shadow: var(--glass-shadow);
   max-width: 100%;
 }
-.nav .brand { display: flex; align-items: flex-start; gap: 10px; margin-right: 8px; }
+.nav .brand { display: flex; align-items: center; gap: 10px; margin-right: 8px; }
 .nav-links { display: flex; gap: 4px; font-size: 14px; color: var(--ink-soft); font-weight: 500; }
 .nav-links a {
   padding: 8px 14px;
@@ -394,6 +453,8 @@ section { position: relative; z-index: 2; padding: clamp(64px, 8vw, 120px) 0; }
   color: var(--ed);
   font-size: 1.05em;
 }
+.about-lede strong { font-weight: 700; color: var(--ink); }
+.meta-card .v strong { font-weight: 700; color: var(--ink); }
 .about-cards { display: grid; gap: 14px; }
 .about-card {
   padding: 24px 26px;
@@ -845,8 +906,112 @@ footer {
 </head>
 <body id="top">
 
-<!-- ───── living mesh-gradient background ───── -->
-<div class="mesh" aria-hidden="true"><span class="b1"></span><span class="b2"></span></div>
+<!-- ───── Aurora background ───── -->
+<div class="aurora" aria-hidden="true">
+  <div class="aurora__warm"></div>
+  <div class="aurora__layer is-tr"></div>
+</div>
+
+<!-- ───── Drifting node-network ───── -->
+<canvas class="nodes-canvas" aria-hidden="true"></canvas>
+<script>
+(() => {
+  const canvas = document.querySelector('.nodes-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+  let W = 0, H = 0;
+  const nodes = [];
+  const NODE_COUNT_BASE = 70;       // ~70 nodes at 1440x900
+  const LINK_DIST = 140;            // px (CSS) between connected nodes
+  const SPEED = 0.18;               // px / frame at 60fps
+  const NODE_COLOR = 'rgba(40, 60, 110, 0.85)';
+  const LINK_COLOR = 'rgba(40, 60, 110, ';   // alpha appended per-pair
+
+  function resize() {
+    W = window.innerWidth;
+    H = window.innerHeight;
+    canvas.width  = Math.floor(W * dpr);
+    canvas.height = Math.floor(H * dpr);
+    canvas.style.width  = W + 'px';
+    canvas.style.height = H + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    // re-seed node count to viewport area
+    const area = W * H;
+    const target = Math.round(NODE_COUNT_BASE * (area / (1440 * 900)));
+    while (nodes.length < target) nodes.push(spawn());
+    while (nodes.length > target) nodes.pop();
+  }
+
+  function spawn() {
+    const angle = Math.random() * Math.PI * 2;
+    return {
+      x: Math.random() * W,
+      y: Math.random() * H,
+      vx: Math.cos(angle) * SPEED,
+      vy: Math.sin(angle) * SPEED,
+      r: 1.4 + Math.random() * 1.6,
+    };
+  }
+
+  function step() {
+    ctx.clearRect(0, 0, W, H);
+
+    // update positions
+    for (const n of nodes) {
+      n.x += n.vx;
+      n.y += n.vy;
+      if (n.x < -10) n.x = W + 10;
+      else if (n.x > W + 10) n.x = -10;
+      if (n.y < -10) n.y = H + 10;
+      else if (n.y > H + 10) n.y = -10;
+    }
+
+    // draw links
+    for (let i = 0; i < nodes.length; i++) {
+      const a = nodes[i];
+      for (let j = i + 1; j < nodes.length; j++) {
+        const b = nodes[j];
+        const dx = a.x - b.x, dy = a.y - b.y;
+        const d2 = dx * dx + dy * dy;
+        if (d2 < LINK_DIST * LINK_DIST) {
+          const d = Math.sqrt(d2);
+          const alpha = (1 - d / LINK_DIST) * 0.5;
+          ctx.strokeStyle = LINK_COLOR + alpha.toFixed(3) + ')';
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.moveTo(a.x, a.y);
+          ctx.lineTo(b.x, b.y);
+          ctx.stroke();
+        }
+      }
+    }
+
+    // draw nodes
+    ctx.fillStyle = NODE_COLOR;
+    for (const n of nodes) {
+      ctx.beginPath();
+      ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    raf = requestAnimationFrame(step);
+  }
+
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let raf = 0;
+  resize();
+  window.addEventListener('resize', resize);
+  if (!reduced) step();
+  else {
+    // draw one static frame
+    for (const n of nodes) { n.vx = 0; n.vy = 0; }
+    step();
+    cancelAnimationFrame(raf);
+  }
+})();
+</script>
 
 <!-- ───── Logo SVG symbol (reused) ───── -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -889,7 +1054,7 @@ footer {
 <div class="nav-wrap">
   <nav class="nav">
     <a href="#top" class="brand" aria-label="overSTEMED home">
-      <img class="brand-logo" src="over-logo-test.svg" alt="overSTEMED" />
+      <img class="brand-logo" src="over-logo-test.png" alt="overSTEMED" />
     </a>
     <div class="nav-links">
       <a href="#about">About</a>
@@ -906,8 +1071,7 @@ footer {
 <section class="hero" data-screen-label="01 Hero">
   <div class="wrap">
     <span class="eyebrow">
-      <span class="dot"></span>
-      <span><span class="num">§ 01</span> &nbsp;From a teacher, for teachers · STEM · AI · Making</span>
+      <span><span class="dot"></span><span>From a teacher, for teachers · STEM · AI · Making</span></span>
     </span>
 
     <h1>
@@ -929,7 +1093,7 @@ footer {
       <div class="hero-meta">
         <div class="meta-card">
           <div class="k">Three threads</div>
-          <div class="v">Playful STEM. Purposeful <em>AI</em>. Future-ready schools.</div>
+          <div class="v">Playful STEM. Purposeful <strong>AI</strong>. Future-ready schools.</div>
         </div>
         <div class="meta-card">
           <div class="k">Built for</div>
@@ -974,12 +1138,12 @@ footer {
 <!-- ───────── About ───────── -->
 <section id="about" data-screen-label="02 About">
   <div class="wrap">
-    <span class="eyebrow"><span class="num">§ 02</span> &nbsp;About · Vision</span>
+    <span class="eyebrow">About · Vision</span>
     <h2 class="section-title">overSTEMED helps schools build the future <em>with confidence.</em></h2>
 
     <div class="about-grid">
       <p class="about-lede">
-        We help schools move beyond isolated STEM lessons and disconnected technology initiatives — building <em>coherent, future-ready learning experiences</em> that combine hands-on STEM, digital and AI literacy, teacher growth, and meaningful spaces for making.
+        We help schools move beyond isolated STEM lessons and disconnected technology initiatives — building <strong>coherent, future-ready learning experiences</strong> that combine hands-on STEM, digital and AI literacy, teacher growth, and meaningful spaces for making.
       </p>
       <div class="about-cards">
         <div class="about-card">
@@ -1005,7 +1169,7 @@ footer {
 <!-- ───────── Founder ───────── -->
 <section id="founder" data-screen-label="03 Founder">
   <div class="wrap">
-    <span class="eyebrow"><span class="num">§ 03</span> &nbsp;Founder · Michael Tzanis</span>
+    <span class="eyebrow">Founder · Michael Tzanis</span>
     <h2 class="section-title">Led by an international STEM educator with deep classroom &amp; curriculum experience.</h2>
 
     <div class="founder-grid">
@@ -1041,7 +1205,7 @@ footer {
 <!-- ───────── Services ───────── -->
 <section id="services" data-screen-label="04 Services">
   <div class="wrap">
-    <span class="eyebrow"><span class="num">§ 04</span> &nbsp;Services · Six offerings</span>
+    <span class="eyebrow">Services · Six offerings</span>
     <h2 class="section-title">Six ways we help schools build <em>meaningful</em> STEM learning.</h2>
     <p class="section-lede">From curriculum and training to competitions and after-school programs — these are the core areas where overSTEMED can support your school.</p>
 
@@ -1106,7 +1270,7 @@ footer {
 <!-- ───────── Partners ───────── -->
 <section id="partners" data-screen-label="05 Partners">
   <div class="wrap">
-    <span class="eyebrow"><span class="num">§ 05</span> &nbsp;Who we work with · School types</span>
+    <span class="eyebrow">Who we work with · School types</span>
     <h2 class="section-title">Built for international schools that want <em>future-ready STEM</em> done well.</h2>
 
     <div class="partner-list">
@@ -1137,7 +1301,7 @@ footer {
 <!-- ───────── Case studies ───────── -->
 <section id="cases" data-screen-label="06 Case Studies">
   <div class="wrap">
-    <span class="eyebrow"><span class="num">§ 06</span> &nbsp;Case studies · Anonymized examples</span>
+    <span class="eyebrow">Case studies · Anonymized examples</span>
     <h2 class="section-title">Examples of how overSTEMED can support <em>international schools.</em></h2>
     <p class="section-lede">These anonymized examples reflect the kinds of school partnerships overSTEMED is designed to support — across curriculum, teacher development, AI integration, and learning-space strategy.</p>
 
@@ -1205,7 +1369,7 @@ footer {
 <!-- ───────── Insights ───────── -->
 <section id="insights" data-screen-label="07 Insights">
   <div class="wrap">
-    <span class="eyebrow"><span class="num">§ 07</span> &nbsp;Insights · Sector challenges</span>
+    <span class="eyebrow">Insights · Sector challenges</span>
     <h2 class="section-title">A snapshot of the challenges shaping <em>STEM education.</em></h2>
     <p class="section-lede">Key challenges schools are facing across Europe — along with the kind of future-ready learning approach overSTEMED is designed to support.<br /><span style="font-size:12px; color: var(--ink-mute);">Source: European Commission, <i>Promoting STEM Education in Schools</i> (2026).</span></p>
 
@@ -1261,7 +1425,7 @@ footer {
 <!-- ───────── Partnership process ───────── -->
 <section id="partnership" data-screen-label="08 Partnership">
   <div class="wrap">
-    <span class="eyebrow"><span class="num">§ 08</span> &nbsp;Partnership · Process</span>
+    <span class="eyebrow">Partnership · Process</span>
     <h2 class="section-title">How schools typically work with overSTEMED <em>over time.</em></h2>
     <p class="section-lede">A partnership is not a separate service list. It is the way these services are combined and delivered to fit your school's goals, staff, and learning environment.</p>
 
@@ -1279,7 +1443,7 @@ footer {
 <!-- ───────── Impact ───────── -->
 <section id="impact" data-screen-label="09 Impact">
   <div class="wrap">
-    <span class="eyebrow"><span class="num">§ 09</span> &nbsp;Impact · What schools leave with</span>
+    <span class="eyebrow">Impact · What schools leave with</span>
     <h2 class="section-title">Designed to leave schools more capable, confident, and <em>future-ready.</em></h2>
 
     <div class="impact-grid">
@@ -1305,7 +1469,7 @@ footer {
 <!-- ───────── Approach + Quote ───────── -->
 <section id="approach" data-screen-label="10 Approach">
   <div class="wrap">
-    <span class="eyebrow"><span class="num">§ 10</span> &nbsp;Approach · Vision &amp; method</span>
+    <span class="eyebrow">Approach · Vision &amp; method</span>
     <h2 class="section-title">A practical partner — from vision <em>through implementation.</em></h2>
 
     <div class="approach-grid">
@@ -1331,7 +1495,7 @@ footer {
 <!-- ───────── Contact ───────── -->
 <section id="contact" data-screen-label="11 Contact">
   <div class="wrap">
-    <span class="eyebrow"><span class="num">§ 11</span> &nbsp;Contact · Start here</span>
+    <span class="eyebrow">Contact · Start here</span>
     <h2 class="section-title">Ready to build a STEM program that <em>fits your school?</em></h2>
     <p class="section-lede">We work best with school leaders, STEM coordinators, innovation teams, and educators looking for a thoughtful long-term partnership. Start with a short message and we'll shape the next conversation around your goals.</p>
 
@@ -1396,7 +1560,7 @@ footer {
   <div class="wrap">
     <div class="foot-card">
       <div style="display: flex; align-items: center; gap: 12px;">
-        <img class="footer-logo" src="over-logo-test.svg" alt="overSTEMED" />
+        <img class="footer-logo" src="over-logo-test.png" alt="overSTEMED" />
       </div>
       <div class="meta">© 2026 · Michael Tzanis · STEM · AI · Makerspaces · International schools</div>
     </div>
