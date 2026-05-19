@@ -1,0 +1,9 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="overSTEMed">
+  <rect x="2" y="2" width="96" height="96" rx="26" fill="#1b2433"/>
+  <text x="50" y="28" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="18" fill="#faf8f4" text-anchor="middle">over</text>
+  <text x="22" y="62" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="27" fill="#faf8f4" text-anchor="middle">S</text>
+  <text x="40" y="62" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="27" fill="#faf8f4" text-anchor="middle">T</text>
+  <text x="58" y="62" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="27" fill="#e15c3a" text-anchor="middle">E</text>
+  <text x="78" y="62" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="27" fill="#faf8f4" text-anchor="middle">M</text>
+  <text x="58" y="88" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="27" fill="#e15c3a" text-anchor="middle">d</text>
+</svg>
