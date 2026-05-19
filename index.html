@@ -899,6 +899,15 @@ footer {
   display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;
 }
 .foot-card .meta { font-size: 13px; color: var(--ink-mute); }
+.footer-social {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 36px; height: 36px; border-radius: 50%;
+  color: var(--ink-mute); transition: color 0.2s ease, background 0.2s ease;
+}
+.footer-social:hover { color: var(--ed); background: oklch(1 0 0 / 0.5); }
+.ci-item .v a.ig {
+  display: inline-flex; align-items: center; gap: 8px;
+}
 
 /* selection */
 ::selection { background: var(--ed); color: white; }
@@ -1538,6 +1547,19 @@ footer {
           <div class="k">EMAIL</div>
           <div class="v"><a href="mailto:hello@overstemed.ai">hello@overstemed.ai</a></div>
         </div>
+        <div class="ci-item">
+          <div class="k">INSTAGRAM</div>
+          <div class="v">
+            <a class="ig" href="https://instagram.com/overstemed.ai" target="_blank" rel="noopener">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                <line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/>
+              </svg>
+              @overstemed.ai
+            </a>
+          </div>
+        </div>
       </div>
 
       <div class="form-card">
@@ -1582,6 +1604,13 @@ footer {
     <div class="foot-card">
       <div style="display: flex; align-items: center; gap: 12px;">
         <img class="footer-logo" src="over-logo-test.png" alt="overSTEMEd" />
+        <a class="footer-social" href="https://instagram.com/overstemed.ai" target="_blank" rel="noopener" aria-label="overSTEMEd on Instagram">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+            <line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/>
+          </svg>
+        </a>
       </div>
       <div class="meta">© 2026 · Michael Tzanis · STEM · AI · Makerspaces · International schools</div>
     </div>
