@@ -937,6 +937,189 @@ footer {
 }
 .toast .dot { width: 8px; height: 8px; border-radius: 50%; background: oklch(0.62 0.15 145); box-shadow: 0 0 12px oklch(0.62 0.15 145); }
 .toast button { background: none; border: none; cursor: pointer; font-size: 18px; color: var(--ink-mute); padding: 0 0 0 8px; }
+
+/* ───────── Venice pull-quote moment ───────── */
+#venice-moment {
+  padding: clamp(72px, 9vw, 130px) 0;
+  position: relative;
+}
+.venice-shell {
+  position: relative;
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: clamp(36px, 6vw, 90px);
+  align-items: center;
+}
+.venice-sketch {
+  position: relative;
+  margin: 0;
+  aspect-ratio: 1 / 1;
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 80% 70% at 30% 30%, oklch(0.94 0.05 60 / 0.55), transparent 70%),
+    radial-gradient(ellipse 90% 80% at 75% 80%, oklch(0.92 0.05 245 / 0.4), transparent 70%),
+    oklch(0.97 0.012 80);
+  border: 1px solid oklch(0.20 0.02 255 / 0.06);
+  box-shadow:
+    0 1px 0 oklch(1 0 0 / 0.6) inset,
+    0 24px 60px -22px oklch(0.2 0.02 255 / 0.18);
+}
+.venice-sketch svg { width: 100%; height: 100%; display: block; }
+.venice-sketch::after {
+  content: "";
+  position: absolute; inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle at 12% 24%, oklch(0.20 0.025 60 / 0.08) 0, transparent 0.6px),
+    radial-gradient(circle at 78% 62%, oklch(0.20 0.025 60 / 0.08) 0, transparent 0.6px),
+    radial-gradient(circle at 44% 88%, oklch(0.20 0.025 60 / 0.08) 0, transparent 0.6px);
+  background-size: 3px 3px, 4px 4px, 5px 5px;
+  mix-blend-mode: multiply;
+  opacity: 0.5;
+}
+.venice-sketch .corner {
+  position: absolute;
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: oklch(0.55 0.10 32 / 0.8);
+}
+.venice-sketch .corner.tl { top: 18px; left: 22px; }
+.venice-sketch .corner.br { bottom: 18px; right: 22px; font-style: italic; font-family: var(--serif); text-transform: none; letter-spacing: 0; font-size: 16px; }
+
+.venice-quote { position: relative; margin: 0; padding: 0 0 0 clamp(40px, 6vw, 80px); }
+.venice-quote .mark {
+  position: absolute;
+  top: -0.35em; left: -0.05em;
+  font-family: var(--serif); font-style: italic;
+  font-size: clamp(160px, 18vw, 260px);
+  line-height: 0.9;
+  color: var(--ed); opacity: 0.22;
+  pointer-events: none; user-select: none;
+}
+.venice-quote p {
+  font-family: var(--serif); font-style: italic; font-weight: 400;
+  font-size: clamp(26px, 3vw, 40px);
+  line-height: 1.28; letter-spacing: -0.01em;
+  color: var(--ink); margin: 0;
+  text-wrap: pretty;
+  position: relative; z-index: 1;
+}
+.venice-quote p .accent { font-style: italic; color: var(--ed); }
+.venice-quote .rule {
+  margin-top: clamp(28px, 3vw, 40px);
+  width: 64px; height: 1px;
+  background: var(--ed); opacity: 0.5;
+}
+@media (max-width: 900px) {
+  .venice-shell { grid-template-columns: 1fr; }
+  .venice-sketch { aspect-ratio: 5 / 4; }
+  .venice-quote { padding-left: 56px; }
+}
+
+/* ───────── AI How — "The piece every AI policy is missing" ───────── */
+#ai-how { position: relative; padding: clamp(80px, 10vw, 140px) 0; }
+#ai-how::before {
+  content: "";
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(oklch(0.20 0.025 255 / 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, oklch(0.20 0.025 255 / 0.05) 1px, transparent 1px);
+  background-size: 56px 56px;
+  pointer-events: none;
+  -webkit-mask-image: radial-gradient(ellipse 70% 90% at 50% 50%, black 20%, transparent 85%);
+          mask-image: radial-gradient(ellipse 70% 90% at 50% 50%, black 20%, transparent 85%);
+  opacity: 0.7;
+  z-index: 1;
+}
+#ai-how .wrap { position: relative; z-index: 2; }
+
+.ai-how-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: clamp(40px, 6vw, 96px);
+  margin-top: clamp(36px, 4vw, 56px);
+  align-items: start;
+}
+.ai-how-body {
+  font-family: var(--sans); font-weight: 400;
+  font-size: clamp(17px, 1.4vw, 21px);
+  line-height: 1.6;
+  color: var(--ink-soft);
+  max-width: 56ch;
+  text-wrap: pretty;
+}
+.ai-how-body p { margin: 0 0 1.2em 0; }
+.ai-how-body p:last-child { margin-bottom: 0; }
+.ai-how-body em {
+  font-family: var(--serif); font-style: italic; font-weight: 400;
+  color: var(--ink);
+  font-size: 1.08em; letter-spacing: -0.005em;
+}
+.ai-how-body .pull {
+  display: inline;
+  font-weight: 700;
+  color: var(--ink);
+  background-image: linear-gradient(transparent 62%, oklch(0.68 0.18 32 / 0.32) 62%, oklch(0.68 0.18 32 / 0.32) 92%, transparent 92%);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  padding: 0 2px;
+}
+
+.ai-diagram { position: relative; display: grid; gap: 18px; }
+.ai-card {
+  position: relative;
+  padding: 26px 28px 24px;
+  border-radius: var(--r-lg);
+  background: var(--glass);
+  backdrop-filter: blur(24px) saturate(170%);
+  -webkit-backdrop-filter: blur(24px) saturate(170%);
+  border: 1px solid var(--glass-stroke);
+  box-shadow: var(--glass-shadow);
+}
+.ai-card.weave {
+  background: var(--glass-strong);
+  border-color: oklch(0.68 0.18 32 / 0.35);
+  box-shadow:
+    0 1px 0 oklch(1 0 0 / 0.7) inset,
+    0 0 0 1px oklch(0.68 0.18 32 / 0.12),
+    0 24px 60px -22px oklch(0.68 0.18 32 / 0.25);
+}
+.ai-card .k {
+  font-family: var(--sans);
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-bottom: 14px;
+  display: flex; align-items: center; gap: 10px;
+}
+.ai-card .k .num {
+  display: inline-grid; place-items: center;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: oklch(0.20 0.02 255 / 0.06);
+  color: var(--ink-soft);
+  font-size: 11px; letter-spacing: 0;
+}
+.ai-card.weave .k .num { background: var(--ed); color: white; }
+.ai-card.weave .k { color: var(--ed); }
+.ai-card h4 {
+  margin: 0 0 14px 0;
+  font-family: var(--sans); font-weight: 700;
+  font-size: 19px; letter-spacing: -0.015em;
+  color: var(--ink);
+}
+.ai-card svg { width: 100%; height: auto; display: block; }
+
+/* Coral accent word inside headings — inherits heading font/weight */
+.accent-word { color: var(--ed); }
+
+@media (max-width: 980px) {
+  .ai-how-grid { grid-template-columns: 1fr; }
+}
 </style>
 </head>
 <body id="top">
@@ -1239,21 +1422,160 @@ footer {
   </div>
 </section>
 
-<!-- ───────── Venice pull-quote (PLACEHOLDER: to be redesigned in Claude Design) ───────── -->
-<section id="venice-moment" data-screen-label="03b Venice">
-  <div class="wrap" style="max-width: 760px;">
-    <blockquote style="font-family: Georgia, 'Times New Roman', serif; font-size: clamp(20px, 2.4vw, 26px); line-height: 1.55; font-style: italic; color: var(--ink-soft); padding: 24px 0; margin: 0; text-align: center;">
-      &ldquo;There was a girl in my 5th-grade Innovation &amp; Design class who could barely speak English. We were building a 3D model of Venice and talking about sea-level rise. She picked up a pencil and drew a layout of Venice that looked like real engineering. The smile on her face said everything words couldn&rsquo;t.&rdquo;
-    </blockquote>
+<!-- ───────── Venice pull-quote moment ───────── -->
+<section id="venice-moment" data-screen-label="03b Venice moment">
+  <div class="wrap">
+    <div class="venice-shell">
+      <figure class="venice-sketch" aria-hidden="true">
+        <span class="corner tl">Venezia · sketch</span>
+        <span class="corner br">a quiet breakthrough</span>
+        <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+          <defs>
+            <linearGradient id="venice-ink" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="oklch(0.55 0.10 32)" stop-opacity="0.85"></stop>
+              <stop offset="100%" stop-color="oklch(0.40 0.08 32)" stop-opacity="0.7"></stop>
+            </linearGradient>
+            <linearGradient id="venice-water" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="oklch(0.78 0.10 230)" stop-opacity="0.18"></stop>
+              <stop offset="100%" stop-color="oklch(0.62 0.14 245)" stop-opacity="0.10"></stop>
+            </linearGradient>
+          </defs>
+          <rect x="0" y="0" width="400" height="400" fill="url(#venice-water)"></rect>
+          <g stroke="url(#venice-ink)" stroke-width="0.8" stroke-linecap="round" fill="none" opacity="0.6">
+            <circle cx="56" cy="62" r="14"></circle>
+            <line x1="56" y1="44" x2="56" y2="80"></line>
+            <line x1="38" y1="62" x2="74" y2="62"></line>
+            <text x="56" y="40" text-anchor="middle" font-family="Instrument Serif, serif" font-style="italic" font-size="11" fill="oklch(0.45 0.10 32)" stroke="none" opacity="0.75">N</text>
+          </g>
+          <path d="M 30 200 Q 90 120, 160 160 T 280 200 Q 340 230, 380 180" stroke="url(#venice-ink)" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.18"></path>
+          <path d="M 30 200 Q 90 120, 160 160 T 280 200 Q 340 230, 380 180" stroke="url(#venice-ink)" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="2 3" fill="none" opacity="0.6"></path>
+          <g stroke="url(#venice-ink)" stroke-width="1.1" stroke-linecap="round" fill="none" opacity="0.7">
+            <path d="M 70 90 Q 100 140, 130 200"></path>
+            <path d="M 200 60 Q 200 130, 220 180"></path>
+            <path d="M 290 80 Q 280 140, 270 200"></path>
+            <path d="M 110 250 Q 140 290, 160 340"></path>
+            <path d="M 220 240 Q 240 290, 240 350"></path>
+            <path d="M 320 230 Q 340 280, 350 340"></path>
+          </g>
+          <g stroke="url(#venice-ink)" stroke-width="0.9" fill="oklch(0.96 0.02 60)" fill-opacity="0.4" opacity="0.85">
+            <rect x="74" y="106" width="36" height="22" rx="1"></rect>
+            <rect x="118" y="124" width="28" height="22" rx="1"></rect>
+            <rect x="160" y="86" width="32" height="28" rx="1"></rect>
+            <rect x="206" y="92" width="40" height="24" rx="1"></rect>
+            <rect x="252" y="98" width="30" height="22" rx="1"></rect>
+            <rect x="298" y="106" width="36" height="20" rx="1"></rect>
+            <rect x="86" y="234" width="32" height="26" rx="1"></rect>
+            <rect x="132" y="226" width="38" height="22" rx="1"></rect>
+            <rect x="184" y="226" width="28" height="28" rx="1"></rect>
+            <rect x="224" y="220" width="36" height="20" rx="1"></rect>
+            <rect x="276" y="226" width="32" height="26" rx="1"></rect>
+            <rect x="316" y="232" width="30" height="22" rx="1"></rect>
+            <rect x="106" y="270" width="40" height="28" rx="1"></rect>
+            <rect x="160" y="278" width="32" height="30" rx="1"></rect>
+            <rect x="206" y="270" width="36" height="26" rx="1"></rect>
+            <rect x="258" y="276" width="40" height="22" rx="1"></rect>
+            <rect x="306" y="270" width="30" height="28" rx="1"></rect>
+          </g>
+          <g stroke="url(#venice-ink)" stroke-width="1.1" fill="none" opacity="0.85">
+            <rect x="186" y="170" width="36" height="22" rx="1"></rect>
+            <line x1="186" y1="181" x2="222" y2="181" stroke-dasharray="1.5 2" stroke-width="0.7"></line>
+          </g>
+          <text x="232" y="178" font-family="Instrument Serif, serif" font-style="italic" font-size="10" fill="oklch(0.40 0.10 32)" opacity="0.85">S. Marco</text>
+          <g stroke="url(#venice-ink)" stroke-width="1.4" stroke-linecap="round" fill="none" opacity="0.9">
+            <path d="M 138 158 q 6 -8, 12 0"></path>
+            <path d="M 244 196 q 6 -8, 12 0"></path>
+            <path d="M 198 232 q 6 -8, 12 0"></path>
+          </g>
+          <g stroke="url(#venice-ink)" stroke-width="0.7" stroke-dasharray="3 4" opacity="0.7">
+            <line x1="20" y1="346" x2="380" y2="346"></line>
+          </g>
+          <text x="20" y="362" font-family="Plus Jakarta Sans, sans-serif" font-size="9" letter-spacing="0.18em" fill="oklch(0.45 0.10 32)" opacity="0.85">SEA LEVEL · +1.2 M PROJECTED</text>
+          <g transform="translate(310 322)" opacity="0.95">
+            <path d="M 0 8 q 8 -10, 18 -2 q 8 8, 0 14" stroke="oklch(0.50 0.16 32)" stroke-width="1.6" stroke-linecap="round" fill="none"></path>
+            <circle cx="22" cy="20" r="2.4" fill="oklch(0.50 0.16 32)"></circle>
+          </g>
+        </svg>
+      </figure>
+
+      <blockquote class="venice-quote">
+        <span class="mark" aria-hidden="true">&ldquo;</span>
+        <p>There was a girl in my 5th-grade Innovation &amp; Design class who could barely speak English. We were building a 3D model of Venice and talking about sea-level rise. She picked up a pencil and drew a layout of Venice that looked like real engineering. <span class="accent">The smile on her face said everything words couldn't.</span></p>
+        <div class="rule" aria-hidden="true"></div>
+      </blockquote>
+    </div>
   </div>
 </section>
 
-<!-- ───────── The piece every AI policy is missing (PLACEHOLDER: to be redesigned in Claude Design) ───────── -->
-<section id="ai-how" data-screen-label="03c AI How">
+<!-- ───────── The piece every AI policy is missing ───────── -->
+<section id="ai-how" data-screen-label="03c AI how">
   <div class="wrap">
     <span class="eyebrow">The how question · What overSTEMed adds</span>
-    <h2 class="section-title">The piece every AI policy is <em>missing.</em></h2>
-    <p class="section-lede">Most schools answer the AI question with a policy. A document, a list of rules, a poster on the classroom wall. That can tell students <em>when</em> to use AI, but it cannot teach them <em>how</em>. The <em>how</em> lives inside the curriculum itself. overSTEMed works with schools to build it in rather than bolt it on, redesigning units, lessons, and assessments so the right use of AI becomes part of what students are learning, not a footnote to it. It is a cultural shift, not a checklist, and it grows with your students, your teachers, and the direction your school is heading.</p>
+    <h2 class="section-title">The piece every <span class="accent-word">AI policy</span> is missing.</h2>
+
+    <div class="ai-how-grid">
+      <div class="ai-how-body">
+        <p>Most schools answer the AI question with a policy. A document, a list of rules, a poster on the classroom wall. That can tell students <em>when</em> to use AI, but it cannot teach them <em>how</em>.</p>
+        <p>The how lives inside the curriculum itself. overSTEMed works with schools to <span class="pull">build it in rather than bolt it on</span>, redesigning units, lessons, and assessments so the right use of AI becomes part of what students are learning, not a footnote to it.</p>
+        <p>It is a cultural shift, not a checklist, and it grows with your students, your teachers, and the direction your school is heading.</p>
+      </div>
+
+      <div class="ai-diagram" aria-hidden="true">
+        <div class="ai-card bolt">
+          <div class="k"><span class="num">1</span><span>The policy approach</span></div>
+          <h4>AI <span class="accent-word">bolted on</span> from outside.</h4>
+          <svg viewBox="0 0 360 110" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="bolt-curriculum" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="oklch(0.20 0.025 255)" stop-opacity="0.06"></stop>
+                <stop offset="100%" stop-color="oklch(0.20 0.025 255)" stop-opacity="0.02"></stop>
+              </linearGradient>
+            </defs>
+            <rect x="14" y="30" width="240" height="56" rx="10" fill="url(#bolt-curriculum)" stroke="oklch(0.20 0.025 255 / 0.22)" stroke-width="1"></rect>
+            <text x="32" y="54" font-family="Plus Jakarta Sans, sans-serif" font-size="10" letter-spacing="0.14em" fill="oklch(0.38 0.02 255)">CURRICULUM</text>
+            <g stroke="oklch(0.20 0.025 255 / 0.28)" stroke-width="1" stroke-linecap="round">
+              <line x1="32" y1="66" x2="118" y2="66"></line>
+              <line x1="124" y1="66" x2="180" y2="66"></line>
+              <line x1="32" y1="74" x2="98" y2="74"></line>
+              <line x1="104" y1="74" x2="156" y2="74"></line>
+              <line x1="162" y1="74" x2="220" y2="74"></line>
+            </g>
+            <g transform="translate(278 18)">
+              <line x1="-12" y1="38" x2="6" y2="42" stroke="oklch(0.55 0.14 32 / 0.55)" stroke-width="1.2" stroke-dasharray="3 3"></line>
+              <rect x="0" y="0" width="64" height="74" rx="12" fill="oklch(0.94 0.06 32)" stroke="oklch(0.68 0.18 32 / 0.85)" stroke-width="1.4"></rect>
+              <text x="32" y="32" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-weight="800" font-size="20" letter-spacing="-0.02em" fill="oklch(0.40 0.16 32)">AI</text>
+              <text x="32" y="50" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="8" letter-spacing="0.14em" fill="oklch(0.45 0.10 32)">POLICY</text>
+              <circle cx="32" cy="64" r="3" fill="none" stroke="oklch(0.50 0.12 32 / 0.7)" stroke-width="1"></circle>
+              <line x1="29" y1="64" x2="35" y2="64" stroke="oklch(0.50 0.12 32 / 0.7)" stroke-width="1"></line>
+            </g>
+          </svg>
+        </div>
+
+        <div class="ai-card weave">
+          <div class="k"><span class="num">2</span><span>The overSTEMed approach</span></div>
+          <h4>AI <span class="accent-word">woven through</span> the curriculum itself.</h4>
+          <svg viewBox="0 0 360 110" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="weave-curriculum" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="oklch(0.68 0.18 32)" stop-opacity="0.18"></stop>
+                <stop offset="100%" stop-color="oklch(0.92 0.06 32)" stop-opacity="0.08"></stop>
+              </linearGradient>
+            </defs>
+            <rect x="14" y="20" width="332" height="76" rx="12" fill="url(#weave-curriculum)" stroke="oklch(0.68 0.18 32 / 0.5)" stroke-width="1.2"></rect>
+            <text x="32" y="42" font-family="Plus Jakarta Sans, sans-serif" font-size="10" letter-spacing="0.14em" fill="oklch(0.50 0.14 32)">CURRICULUM · WITH AI INSIDE</text>
+            <g fill="none" stroke-linecap="round" stroke-width="1.6">
+              <path d="M 32 64 Q 80 50, 130 64 T 230 64 T 330 64" stroke="oklch(0.30 0.04 255 / 0.55)"></path>
+              <path d="M 32 72 Q 80 86, 130 72 T 230 72 T 330 72" stroke="oklch(0.30 0.04 255 / 0.4)"></path>
+              <path d="M 32 80 Q 80 66, 130 80 T 230 80 T 330 80" stroke="oklch(0.30 0.04 255 / 0.3)"></path>
+              <circle cx="78" cy="58" r="4" fill="oklch(0.68 0.18 32)" stroke="none"></circle>
+              <circle cx="158" cy="68" r="4" fill="oklch(0.68 0.18 32)" stroke="none"></circle>
+              <circle cx="232" cy="74" r="4" fill="oklch(0.68 0.18 32)" stroke="none"></circle>
+              <circle cx="306" cy="64" r="4" fill="oklch(0.68 0.18 32)" stroke="none"></circle>
+            </g>
+            <text x="332" y="42" text-anchor="end" font-family="Instrument Serif, serif" font-style="italic" font-size="14" fill="oklch(0.50 0.14 32)">AI</text>
+          </svg>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
