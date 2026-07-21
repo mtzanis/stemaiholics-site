@@ -425,6 +425,61 @@ section { position: relative; z-index: 2; padding: clamp(64px, 8vw, 120px) 0; }
 .snap-tile p { margin: 0; color: var(--ink-soft); font-size: 14.5px; }
 @media (max-width: 800px) { .snapshot { grid-template-columns: 1fr; } }
 
+/* training band — dark foundation card beneath the three area tiles */
+.training-band {
+  margin-top: 16px;
+  padding: clamp(34px, 4.5vw, 52px) clamp(26px, 4vw, 52px);
+  border-radius: var(--r-lg);
+  background:
+    radial-gradient(120% 180% at 85% -20%, oklch(0.45 0.10 32 / 0.35), transparent 55%),
+    linear-gradient(135deg, oklch(0.27 0.03 255), oklch(0.18 0.025 255));
+  color: oklch(0.97 0.008 90);
+  box-shadow: 0 1px 0 oklch(1 0 0 / 0.14) inset, 0 24px 60px -20px oklch(0.2 0.02 255 / 0.4), 0 4px 14px -6px oklch(0.2 0.02 255 / 0.22);
+  display: grid; grid-template-columns: 1.1fr 1fr;
+  gap: 18px clamp(32px, 5vw, 72px);
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+.training-band .k {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+  color: oklch(0.80 0.10 32);
+  margin-bottom: 14px;
+}
+.training-band .k::after {
+  content: ""; display: block;
+  width: 44px; height: 2px; margin-top: 10px;
+  background: var(--ed);
+  border-radius: 2px;
+}
+.training-band h3 {
+  margin: 0;
+  font-weight: 700; font-size: clamp(26px, 3.2vw, 36px);
+  line-height: 1.1; letter-spacing: -0.02em;
+}
+.training-band h3 em {
+  font-style: normal;
+  color: var(--ed);
+}
+.training-band p {
+  margin: 0;
+  color: oklch(0.86 0.01 90);
+  font-size: 15.5px; line-height: 1.65;
+}
+.training-band .band-cta {
+  display: inline-block; margin-top: 18px;
+  padding: 11px 20px;
+  border-radius: 999px;
+  background: oklch(0.97 0.008 90);
+  color: var(--ink);
+  font-weight: 600; font-size: 14px;
+  text-decoration: none;
+  box-shadow: 0 8px 20px -8px oklch(0 0 0 / 0.5);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.training-band .band-cta:hover { transform: translateY(-1px); box-shadow: 0 12px 26px -8px oklch(0 0 0 / 0.55); }
+@media (max-width: 800px) { .training-band { grid-template-columns: 1fr; gap: 14px; } }
+
 /* chips */
 .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
 .chip {
