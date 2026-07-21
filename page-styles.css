@@ -28,6 +28,9 @@
 }
 
 * { box-sizing: border-box; }
+
+/* keep anchor-jump targets clear of the floating nav */
+section, footer { scroll-margin-top: 110px; }
 html, body { margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body {
