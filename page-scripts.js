@@ -8,8 +8,8 @@
   const nodes = [];
   const NODE_COUNT_BASE = 70;       // ~70 nodes at 1440x900
   const LINK_DIST = 140;            // px (CSS) between connected nodes
-  const SPEED = 0.18;               // px / frame at 60fps
-  const NODE_COLOR = 'rgba(40, 60, 110, 0.85)';
+  const SPEED = 0.032;              // very slow drift — fast motion under text is distracting (Tim Venchus feedback, 2026-08-03)
+  const NODE_COLOR = 'rgba(40, 60, 110, 0.45)';
   const LINK_COLOR = 'rgba(40, 60, 110, ';   // alpha appended per-pair
 
   function resize() {
@@ -60,7 +60,7 @@
         const d2 = dx * dx + dy * dy;
         if (d2 < LINK_DIST * LINK_DIST) {
           const d = Math.sqrt(d2);
-          const alpha = (1 - d / LINK_DIST) * 0.5;
+          const alpha = (1 - d / LINK_DIST) * 0.28;
           ctx.strokeStyle = LINK_COLOR + alpha.toFixed(3) + ')';
           ctx.lineWidth = 1;
           ctx.beginPath();
