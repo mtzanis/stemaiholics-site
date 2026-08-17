@@ -268,7 +268,18 @@ img { max-width: 100%; display: block; }
 .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 12px 28px -10px oklch(0.2 0.02 255 / 0.35); }
 
 @media (max-width: 980px) {
-  .nav-links { display: none; }
+  /* keep the menu on mobile: logo + CTA on one row, links on a second */
+  .nav { flex-wrap: wrap; padding: 10px 14px; gap: 4px 8px; border-radius: 26px; }
+  .nav .brand-logo { height: 42px; }
+  .nav-cta { padding: 9px 13px; font-size: 13px; white-space: nowrap; }
+  .nav-links {
+    order: 3; width: 100%;
+    justify-content: center; gap: 2px;
+    font-size: 13.5px;
+    border-top: 1px solid oklch(0.20 0.025 255 / 0.08);
+    padding-top: 4px;
+  }
+  .nav-links a { padding: 7px 11px; }
 }
 
 /* ───────── Sections ───────── */
@@ -992,6 +1003,10 @@ section.reveal:not(.in) .bar-fill { width: 0; }
   transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
 }
 .field input::placeholder, .field textarea::placeholder { color: var(--ink-mute); }
+/* 16px floor on touch screens — anything smaller makes iOS Safari zoom into the field */
+@media (max-width: 800px) {
+  .field input, .field textarea { font-size: 16px; }
+}
 .field input:focus, .field textarea:focus { border-color: var(--ed); box-shadow: 0 0 0 3px oklch(0.68 0.18 32 / 0.15); background: oklch(1 0 0 / 0.85); }
 
 /* ───────── Footer ───────── */
