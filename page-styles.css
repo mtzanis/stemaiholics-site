@@ -1357,3 +1357,34 @@ footer {
   font-size: 12px; color: var(--ink-mute);
   letter-spacing: 0.01em;
 }
+
+/* ───────── Stat figures (case studies FIG. 08) ───────── */
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 18px;
+  max-width: 860px;
+}
+.stat-card {
+  padding: 26px 24px;
+  border-radius: var(--r-md);
+  background: var(--glass);
+  backdrop-filter: blur(22px) saturate(170%);
+  -webkit-backdrop-filter: blur(22px) saturate(170%);
+  border: 1px solid var(--glass-stroke);
+}
+.stat-card .figure {
+  font-family: var(--sans); font-weight: 800;
+  font-size: clamp(38px, 4.4vw, 54px);
+  letter-spacing: -0.045em; line-height: 1;
+  color: var(--ed);
+}
+.stat-card .unit {
+  display: block; margin-top: 8px;
+  font-size: 12px; font-weight: 700; letter-spacing: 0.09em;
+  text-transform: uppercase; color: var(--ink-mute);
+}
+.stat-card p {
+  margin: 12px 0 0 0;
+  font-size: 13.5px; line-height: 1.5; color: var(--ink-soft);
+}
