@@ -1402,7 +1402,7 @@ footer {
   box-shadow: var(--glass-shadow);
 }
 .news-card h2 { margin: 14px 0 10px; font-size: clamp(26px, 3.4vw, 38px); line-height: 1.08; letter-spacing: -0.03em; font-weight: 800; }
-.news-card h2 .serif-i { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spacing: -0.01em; color: var(--ed); }
+.news-card h2 em { font-style: normal; color: var(--ed); }
 .news-card p { margin: 0; font-size: 16px; line-height: 1.6; color: var(--ink-soft); max-width: 46ch; }
 .news-form { display: grid; gap: 12px; }
 .news-row { display: flex; gap: 10px; flex-wrap: wrap; }
@@ -1462,7 +1462,8 @@ footer {
 .tour-pop .dates { font-weight: 800; font-size: clamp(40px, 8vw, 64px); line-height: 1; letter-spacing: -0.04em; margin: 0; color: var(--ink); }
 .tour-pop .dates em { font-style: normal; color: var(--ed); }
 .tour-pop .cities { margin: 12px 0 0; font-weight: 800; font-size: clamp(18px, 3vw, 24px); letter-spacing: -0.015em; }
-.tour-pop .line { margin: 10px 0 0; font-size: 15px; line-height: 1.55; color: var(--ink-soft); max-width: 40ch; }
+.tour-pop .line { margin: 10px 0 0; font-size: 15px; line-height: 1.6; color: var(--ink-soft); }
+.tour-pop .line span { display: block; }
 .tour-pop .line strong { color: var(--ink); font-weight: 700; }
 .tour-pop .actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 22px; align-items: center; }
 .tour-pop .later { background: none; border: none; cursor: pointer; font-family: var(--sans); font-size: 14px; font-weight: 600; color: var(--ink-mute); padding: 10px 6px; }

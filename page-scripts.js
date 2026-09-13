@@ -136,7 +136,7 @@
         '<p class="kicker">overSTEMed is coming home.</p>' +
         '<h2 class="dates" id="tour-pop-title">19 to 23 <em>October.</em></h2>' +
         '<p class="cities">Thessaloniki &amp; Athens</p>' +
-        '<p class="line">Five days of school visits and leadership sessions. <strong>Lead a school in either city? Book a morning on your campus.</strong> The calendar is small and it fills in order.</p>' +
+        '<p class="line"><span>Five days of school visits and leadership sessions.</span><span><strong>Lead a school in either city?</strong></span><span><strong>Book a morning on your campus.</strong></span><span>The calendar is small and it fills in order.</span></p>' +
         '<div class="actions">' +
           '<a class="btn btn-ed" href="/greece/">See the dates and book →</a>' +
           '<button class="later" type="button">Not now</button>' +
