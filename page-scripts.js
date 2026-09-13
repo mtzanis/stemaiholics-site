@@ -96,14 +96,74 @@
 })();
 
 // success toast after form redirect
-if (new URLSearchParams(location.search).get('sent') === '1') {
+(() => {
+  const q = new URLSearchParams(location.search);
+  let msg = '';
+  if (q.get('sent') === '1') msg = 'Message sent. You will hear back soon.';
+  if (q.get('subscribed') === '1') msg = 'You are on the list. The first letter comes from a classroom.';
+  if (!msg) return;
   const t = document.createElement('div');
   t.className = 'toast';
-  t.innerHTML = '<span class="dot"></span><span>Message sent — you\'ll hear back soon.</span><button aria-label="dismiss">×</button>';
+  t.innerHTML = '<span class="dot"></span><span></span><button aria-label="dismiss">×</button>';
+  t.children[1].textContent = msg;
   document.body.appendChild(t);
   t.querySelector('button').onclick = () => t.remove();
-  setTimeout(() => t.remove(), 8000);
-}
+  setTimeout(() => t.remove(), 9000);
+})();
+
+// Greece tour popup: one visit, dismissable, time-limited, never on /greece/ itself.
+// Uses localStorage only to remember "already shown". No cookies, nothing sent anywhere.
+(() => {
+  const LAST_DAY = new Date('2026-10-23T23:59:59+03:00');
+  if (Date.now() > LAST_DAY.getTime()) return;
+  if (location.pathname.startsWith('/greece') || location.pathname.startsWith('/privacy')) return;
+  if (new URLSearchParams(location.search).has('sent') || new URLSearchParams(location.search).has('subscribed')) return;
+  const KEY = 'os-greece-pop-v1';
+  let seen = false;
+  try { seen = !!localStorage.getItem(KEY); } catch (e) {}
+  if (seen) return;
+
+  let shown = false;
+  function show() {
+    if (shown) return; shown = true;
+    try { localStorage.setItem(KEY, String(Date.now())); } catch (e) {}
+    const back = document.createElement('div');
+    back.className = 'tour-pop-backdrop';
+    back.innerHTML =
+      '<div class="tour-pop" role="dialog" aria-modal="true" aria-labelledby="tour-pop-title">' +
+        '<button class="close" type="button" aria-label="Close">×</button>' +
+        '<span class="eyebrow"><span><span class="dot"></span><span>On the road</span></span></span>' +
+        '<p class="kicker">overSTEMed is coming home.</p>' +
+        '<h2 class="dates" id="tour-pop-title">19 to 23 <em>October.</em></h2>' +
+        '<p class="cities">Thessaloniki &amp; Athens</p>' +
+        '<p class="line">Five days of school visits and leadership sessions. <strong>Lead a school in either city? Book a morning on your campus.</strong> The calendar is small and it fills in order.</p>' +
+        '<div class="actions">' +
+          '<a class="btn btn-ed" href="/greece/">See the dates and book →</a>' +
+          '<button class="later" type="button">Not now</button>' +
+        '</div>' +
+      '</div>';
+    document.body.appendChild(back);
+    const prevFocus = document.activeElement;
+    const close = () => {
+      back.classList.remove('in');
+      document.removeEventListener('keydown', onKey);
+      setTimeout(() => back.remove(), 300);
+      if (prevFocus && prevFocus.focus) prevFocus.focus();
+    };
+    const onKey = (e) => { if (e.key === 'Escape') close(); };
+    back.querySelector('.close').onclick = close;
+    back.querySelector('.later').onclick = close;
+    back.addEventListener('click', (e) => { if (e.target === back) close(); });
+    document.addEventListener('keydown', onKey);
+    requestAnimationFrame(() => { back.classList.add('in'); back.querySelector('.btn').focus(); });
+  }
+  const timer = setTimeout(show, 7000);
+  const onScroll = () => {
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    if (max > 0 && window.scrollY / max > 0.3) { clearTimeout(timer); show(); window.removeEventListener('scroll', onScroll); }
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+})();
 
 // reveal on scroll
 const io = new IntersectionObserver((es) => {

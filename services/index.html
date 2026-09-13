@@ -25,10 +25,8 @@
 <meta name="twitter:title" content="overSTEMed | Designing future-ready schools" />
 <meta name="twitter:description" content="Playful STEM. Purposeful AI. Future-ready schools. overSTEMed helps educators design hands-on curricula, train teachers, and build makerspaces." />
 <meta name="twitter:image" content="https://overstemed.ai/social-card.png" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="/page-styles.css?v=4">
+<link rel="stylesheet" href="/fonts.css?v=1" />
+<link rel="stylesheet" href="/page-styles.css?v=5">
 </head>
 <body id="top">
 
@@ -40,7 +38,7 @@
 
 <!-- ───── Drifting node-network ───── -->
 <canvas class="nodes-canvas" aria-hidden="true"></canvas>
-<script defer src="/page-scripts.js"></script>
+<script defer src="/page-scripts.js?v=2"></script>
 
 <!-- ───── Logo SVG symbol (reused) ───── -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -260,19 +258,58 @@
   </div>
 </section>
 
+<!-- ───────── Newsletter ───────── -->
+<section id="newsletter" class="newsletter" aria-labelledby="newsletter-title">
+  <div class="wrap">
+    <div class="news-card">
+      <div class="news-copy">
+        <span class="eyebrow"><span><span class="dot"></span><span>Newsletter</span></span></span>
+        <h2 id="newsletter-title">One letter a month, <span class="serif-i">from a classroom.</span></h2>
+        <p>What overSTEMed is learning about STEM, AI, and hands-on teaching in international schools, written by a teacher who is still in one. No product news, because there is no product.</p>
+      </div>
+      <form class="news-form" name="newsletter" method="POST" action="https://formspree.io/f/mrejnqwq">
+        <input type="hidden" name="_subject" value="overSTEMed: newsletter signup" />
+        <input type="hidden" name="_next" value="https://overstemed.ai/?subscribed=1" />
+        <input type="hidden" name="List" value="overSTEMed newsletter" />
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true" />
+        <label class="sr-only" for="news-email">Email</label>
+        <div class="news-row">
+          <input id="news-email" name="email" type="email" placeholder="you@yourschool.edu" required autocomplete="email" />
+          <button type="submit" class="btn btn-ed">Subscribe →</button>
+        </div>
+        <label class="news-consent">
+          <input type="checkbox" name="Consent" value="Yes, send me the overSTEMed newsletter" required />
+          <span>Yes, send me the newsletter. One email a month at most, and one reply unsubscribes you. <a href="/privacy/">Privacy notice</a>.</span>
+        </label>
+      </form>
+    </div>
+  </div>
+</section>
+
 <!-- ───────── Footer ───────── -->
 <footer>
   <div class="wrap">
     <div class="foot-card">
       <div style="display: flex; align-items: center; gap: 12px;">
         <img class="footer-logo" src="/over-logo-test.png" alt="overSTEMed" />
-        <a class="footer-social" href="https://instagram.com/overstemed.ai" target="_blank" rel="noopener" aria-label="overSTEMed on Instagram">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-            <line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/>
-          </svg>
-        </a>
+        <div class="foot-icons">
+          <a class="footer-social" href="https://instagram.com/overstemed.ai" target="_blank" rel="noopener" aria-label="overSTEMed on Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+              <line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/>
+            </svg>
+          </a>
+          <a class="footer-social" href="https://www.linkedin.com/company/overstemed" target="_blank" rel="noopener" aria-label="overSTEMed on LinkedIn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="foot-links">
+        <a href="/greece/">Greece, October 19 to 23</a>
+        <a href="/#newsletter">Newsletter</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="mailto:hello@overstemed.ai">hello@overstemed.ai</a>
       </div>
       <div class="meta">© 2026 · Michael Tzanis · STEM · AI · Makerspaces · International schools</div>
     </div>
