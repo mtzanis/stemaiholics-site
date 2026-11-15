@@ -100,7 +100,7 @@
   const q = new URLSearchParams(location.search);
   let msg = '';
   if (q.get('sent') === '1') msg = 'Message sent. You will hear back soon.';
-  if (q.get('subscribed') === '1') msg = 'You are on the list. The first letter comes from a classroom.';
+  if (q.get('subscribed') === '1') msg = 'Almost there. Check your inbox and confirm your email to join the list.';
   if (!msg) return;
   const t = document.createElement('div');
   t.className = 'toast';
