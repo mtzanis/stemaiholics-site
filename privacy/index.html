@@ -151,7 +151,7 @@
 
         <h2>The newsletter</h2>
         <p>The newsletter is sent only to people who tick the box and ask for it. That is consent, and you can take it back at any time: reply to any issue with "unsubscribe", or write to <a href="mailto:hello@overstemed.ai">hello@overstemed.ai</a>, and your address is removed. Your email address is used for the newsletter only. It is never added to other lists.</p>
-        <p>Signups currently arrive through Formspree. If overSTEMed moves the list to a newsletter service, that service will be named here and will be one based in the EU or with GDPR-compliant terms in place.</p>
+        <p>The list is run on <strong>Buttondown</strong>, a newsletter service that stores subscriber email addresses, sends each issue, and handles unsubscribes. Every issue also carries an unsubscribe link. Buttondown's handling of subscriber data is described in its <a href="https://buttondown.com/legal/privacy" target="_blank" rel="noopener">privacy policy</a>.</p>
 
         <h2>Booking a call</h2>
         <p>The "Book a call" links open a <strong>Google Calendar</strong> booking page run under overSTEMed's Google Workspace account. What you enter there is covered by <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's privacy policy</a> and by this notice, and is used only to hold and run the call.</p>
@@ -180,11 +180,7 @@
         <h2 id="newsletter-title">One letter a month,<br /><em>from a classroom.</em></h2>
         <p>What overSTEMed is learning about STEM, AI, and hands-on teaching in international schools, written by a teacher who is still in one. No product news, because there is no product.</p>
       </div>
-      <form class="news-form" name="newsletter" method="POST" action="https://formspree.io/f/mrejnqwq">
-        <input type="hidden" name="_subject" value="overSTEMed: newsletter signup" />
-        <input type="hidden" name="_next" value="https://overstemed.ai/?subscribed=1" />
-        <input type="hidden" name="List" value="overSTEMed newsletter" />
-        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true" />
+      <form class="news-form" name="newsletter" method="POST" action="https://buttondown.com/api/emails/embed-subscribe/overstemed">
         <label class="sr-only" for="news-email">Email</label>
         <div class="news-row">
           <input id="news-email" name="email" type="email" placeholder="you@yourschool.edu" required autocomplete="email" />
